@@ -1,0 +1,75 @@
+These scripts are used to find complete sets of strategies and permutations for
+CSIDH-512 using SIMBA. I have run them with Octave version 4.2.2, configured
+for "x84_64-pc-linux-gnu"; I make no guarantees that they will work in other
+versions of Octave or in any version of MATLAB without modification. And while
+I am reasonably convinced that they typically run without error, I make no
+guarantee that they are correct.
+
+To run the code as I have written it, at the octave command line, run Main().
+The output is automatically saved to FullParameterSet.mat.
+
+The files in this directory are as follows:
+
+Informational:
+--------------
+README: Describes the contents of this directory.
+
+Octave Scripts:
+---------------
+    AlternatingAlgorithm.m: A naive alternating algorithm to optimize the
+                            startegy and permutation for given multiplication 
+                            and isogeny evaluation costs.
+
+	 CostsAndIndices.m: Computes the matrix of costs of full strategies for
+                            all contiguous and compatible subsets of given
+                            vectors of multiplication and isogeny evaluation
+                            costs.
+
+	 EverythingPrint.m: Using MatPrint.m and PermPrint.m, prints the set of
+                            vertical strategy matrices and corresponding
+                            permutations to files in a format that is useful.
+
+		    Main.m: The main function used to find the set of strategies
+                            and permutations. 
+
+		MatPrint.m: Prints a vertical strategy matrix to a file, in a
+                            way that is useful to us.
+
+      MultipleStrategies.m: Finds a complete set of strategies for a given set
+                            of primes, cost model, and bound vector.
+
+OptimalPermutationMatrix.m: Finds the optimal permutation for a given cost
+                            model and strategy.
+
+         OptimalStrategy.m: Returns the optimal full strategy for a given
+                            (possibly permuted) cost model.
+
+	      Partitions.m: Returns the partitions of n into k parts where each
+                            part is between lb and ub. 
+
+	       PermPrint.m: Prints a list of permutations in a way that is
+                            convenient for postprocessing.
+
+                   Setup.m: Loads CSIDH-512 parameters and cost model.
+
+               SIMBAJoin.m: Joins a left SIMBA substrategy to a right
+                            SIMBA substrategy.
+
+	StochasticSearch.m: Searches for a SIMBA partition, strategy, and
+			    permutation which permforms well for the given
+                            parameters.
+
+	      StrategyDraw: Draws a strategy.
+
+	      StrategyJoin: Joins a left substrategy to a right substrategy.
+
+Data Files:
+-----------
+
+             Vs.txt: Saves all the vertical strategy matrices output by
+                     MultipleStrategies.m. Created by EverythingPrint.m
+
+          Perms.txt: Saves all the permutations output by MultipleStrategies.m.
+                     Created by EverythingPrint.
+
+FullParamterSet.mat: Saves all the output of MultipleStrategies.m. Created by Main.m.

@@ -1,0 +1,27 @@
+The script in this directory is used to produce a bound vector for an
+implementation of CSIDH-512. I have run it in MATLAB_2018a using CVX version
+4.2.2; I make no guarantees that it will work in other versions of MATLAB or in
+any version of Octave without modification. And while I am convinced that it
+typically runs without error, I make no guarantee that it is correct.
+
+
+To run the code as I have written it, at the Matlab command line, run Main().
+The output is automatically saved to BoundVector.mat.
+
+The files in this directory are as follows:
+
+Informational:
+--------------
+README: Describes the contents of this directory.
+
+Matlab Script:
+---------------
+
+Main.m: Computes a bound vector for the parameters and cost model contained in
+Parameters.mat. We use our heuristic mathematical program which we solve
+approximately by iterative rounding. The result is written to BoundVector.mat.
+
+Data File:
+-----------
+
+BoundVector.mat: Saves the output bound vector of Main.m.
